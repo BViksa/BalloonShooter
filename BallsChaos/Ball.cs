@@ -5,7 +5,6 @@ using System.Text;
 using System.Drawing;
 using BallsChaos.Properties;
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -14,22 +13,16 @@ namespace BallsChaos
     [Serializable]
     public class Ball
     {
-        private static readonly int RADIUS = 20;
-
-        public Point Center { get; set; }
-
+       public Point Center { get; set; }
         public Color Color { get; set; }
         public bool bomba { get; set; }
         public Image slika { get; set; }
         Image [] niza;
         public double Velocity { get; set; }
         public double Angle { get; set; }
-
         private float velocityX;
         private float velocityY;
-
         public bool Flag { get; set; }
-
         public bool IsColided { get; set; }
 
         public Ball(Point center, Color color,Image s)
@@ -41,7 +34,6 @@ namespace BallsChaos
             niza[1] = Resources._33;
             niza[2] = Resources.sss;
             niza[3] = Resources.Untitled;
-            
             IsColided = false;
             slika = s;
             Velocity = 10;
@@ -54,9 +46,7 @@ namespace BallsChaos
 
         public void Draw(Graphics g)
         {
-            
             g.DrawImageUnscaled(slika, Center);
-           
         }
 
         public  bool IsHit(float x, float y)
