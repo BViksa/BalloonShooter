@@ -52,7 +52,6 @@ namespace BallsChaos
         public  bool IsHit(float x, float y)
         {
             Point nova = new Point((int)x, (int) y);
-
             if (nova.Y <= (Center.Y + 90) && nova.Y >= (Center.Y ))
             {
                 if (nova.X <= (Center.X + 65) && nova.X >= (Center.X))
@@ -83,30 +82,22 @@ namespace BallsChaos
         {
             float nextX = Center.X + 30;
             float nextY = Center.Y + 30;
-            
             Center = new Point((int)(Center.X), (int)(Center.Y-10));          
         }
 
 
         private Ball(SerializationInfo info, StreamingContext context)
         {
-
-
             Center = (Point)info.GetValue("Center", typeof(Point));
             Color = (Color)info.GetValue("Color", typeof(Color));
             slika = (Image)info.GetValue("Slika", typeof(Image));
-
         }
 
         public void GetObjectData(SerializationInfo inf, StreamingContext con)
         {
-           
-
             inf.AddValue("Center", Center);
             inf.AddValue("Colour", Color);
             inf.AddValue("Slika", slika);
-
-
         }
 
         public override string ToString()
